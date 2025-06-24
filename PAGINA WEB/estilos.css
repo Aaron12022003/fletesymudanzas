@@ -1,0 +1,467 @@
+/* --- RESET BASICO --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f0f4f8;
+  color: #2c3e50;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* --- CONTENEDOR GENERAL --- */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* --- ENCABEZADO --- */
+header {
+  background-color: #1a2a6c;
+  padding: 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+}
+
+nav ul {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+
+nav ul li a {
+  color: #a8b1c1;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.btn-contratar {
+  background: #ff6f61;
+  color: white;
+}
+
+/* --- SECCIÓN VIDEO --- */
+.video-section {
+  position: relative;
+  margin: 40px 0 80px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(26,42,108,0.25);
+}
+
+.video-bg {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+  max-width: 80%;
+  pointer-events: none;
+}
+
+.video-overlay h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.8rem;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.video-overlay p {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+/* --- SERVICIOS --- */
+.servicios-section {
+  margin-bottom: 70px;
+  text-align: center;
+}
+
+.servicios-section h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.6rem;
+  color: #1a2a6c;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+.servicios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+  gap: 30px;
+}
+
+.servicio-card {
+  background: white;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 14px 25px rgba(26,42,108,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.servicio-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 45px rgba(26,42,108,0.2);
+}
+
+.servicio-card img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.servicio-card h3 {
+  font-family: 'Montserrat', sans-serif;
+  color: #ff6f61;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.servicio-card p {
+  font-size: 1rem;
+  color: #34495e;
+  line-height: 1.4;
+}
+
+/* --- POR QUÉ ELEGIRNOS --- */
+.porque-elegirnos {
+  background: linear-gradient(135deg, #ff6f61, #ff9472);
+  color: white;
+  padding: 50px 30px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(255,111,97,0.4);
+  margin-bottom: 70px;
+  font-weight: 500;
+  font-size: 1.2rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+.porque-elegirnos h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 25px;
+}
+
+/* --- CAMIÓN --- */
+.camion-info {
+  margin-bottom: 70px;
+}
+
+.camion-info h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.6rem;
+  color: #1a2a6c;
+  font-weight: 700;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.camion-content {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.camion-images {
+  flex: 1 1 400px;
+  max-width: 420px;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(26,42,108,0.15);
+  position: relative;
+  height: 280px;
+}
+
+.camion-images img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  user-select: none;
+}
+
+.camion-images img.active {
+  opacity: 1;
+  position: relative;
+}
+
+.camion-features {
+  flex: 1 1 380px;
+  max-width: 450px;
+  list-style: none;
+  font-size: 1.2rem;
+  color: #34495e;
+}
+
+.camion-features li {
+  margin-bottom: 20px;
+  padding-left: 14px;
+  border-left: 5px solid #ff6f61;
+  font-weight: 600;
+  transition: border-color 0.3s ease;
+  cursor: default;
+}
+
+.camion-features li:hover {
+  border-color: #c94e42;
+  color: #c94e42;
+}
+
+/* --- REDES FLOTANTES --- */
+.redes-flotantes {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  display: flex;
+  gap: 18px;
+  z-index: 1200;
+}
+
+.icon {
+  width: 56px;
+  height: 56px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  user-select: none;
+}
+
+.icon img {
+  width: 28px;
+  height: 28px;
+}
+
+.icon.whatsapp {
+  background-color: #25d366;
+}
+
+.icon.facebook {
+  background-color: #1877f2;
+}
+
+.icon:hover {
+  transform: scale(1.15);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+/* --- BOTÓN FIJO CONTRATAR --- */
+.btn-contratar-fijo {
+  position: fixed;
+  bottom: 95px;
+  right: 25px;
+  background: #ff6f61;
+  color: white;
+  font-weight: 700;
+  font-size: 1.15rem;
+  padding: 16px 30px;
+  border-radius: 12px;
+  box-shadow: 0 15px 40px rgba(255,111,97,0.6);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+  z-index: 1300;
+}
+
+.btn-contratar-fijo:hover {
+  background: #e65c51;
+  box-shadow: 0 18px 50px rgba(230,92,81,0.8);
+}
+
+/* --- BOTÓN CONTRATAR EN EL NAV --- */
+.btn-contratar {
+  padding: 8px 18px;
+  background: #ff6f61;
+  color: white !important;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.btn-contratar:hover {
+  background: #e65c51;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+  .header-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .camion-content {
+    flex-direction: column;
+  }
+
+  .camion-images,
+  .camion-features {
+    max-width: 100%;
+    flex: unset;
+  }
+
+  .video-overlay h2 {
+    font-size: 2rem;
+  }
+
+  .video-overlay p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .servicios-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* === Sección Contratar === */
+.contratar-section {
+  max-width: 700px;
+  margin: 60px auto 80px;
+  background: white;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.contratar-section h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  color: #1a2a6c;
+  font-weight: 700;
+}
+
+.contratar-section p {
+  font-size: 1.2rem;
+  color: #34495e;
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+
+.form-contratar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #0056b3;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 1.8px solid #ccc;
+  font-size: 1rem;
+  font-family: 'Roboto', sans-serif;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #ff6f61;
+  box-shadow: 0 0 8px rgba(255,111,97,0.5);
+}
+
+.btn-submit {
+  background-color: #ff6f61;
+  color: white;
+  font-weight: 700;
+  font-size: 1.25rem;
+  padding: 16px 0;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.btn-submit:hover {
+  background-color: #e65c51;
+}
+
+/* Botón volver */
+.btn-volver {
+  display: inline-block;
+  margin-top: 30px;
+  color: #1a2a6c;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.btn-volver:hover {
+  color: #ff6f61;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .contratar-section {
+    margin: 40px 15px 60px;
+    padding: 30px 20px;
+  }
+}

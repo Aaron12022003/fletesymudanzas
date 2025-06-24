@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fletes y Mudanzas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="estilos.css" />
+  <style>
+    /* Encabezado centrado estilo contratar */
+    header {
+      background-color: #1a2a6c;
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .header-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Montserrat', sans-serif;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    nav ul li a {
+      color: #a8b1c1;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 8px 14px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.btn-contratar {
+      background: #ff6f61;
+      color: white;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Video */
+    .video-section video {
+      width: 100%;
+      display: block;
+      border-radius: 12px;
+      box-shadow: 0 12px 30px rgba(26,42,108,0.25);
+      margin-top: 40px;
+    }
+
+    /* Servicios */
+    #servicios {
+      margin: 70px 0;
+      text-align: center;
+    }
+    #servicios h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.6rem;
+      color: #1a2a6c;
+      font-weight: 700;
+      margin-bottom: 40px;
+    }
+    .servicios-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 30px;
+    }
+    .servicio {
+      background: white;
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 14px 25px rgba(26,42,108,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .servicio:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 45px rgba(26,42,108,0.2);
+    }
+    .servicio img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      user-select: none;
+    }
+    .servicio h3 {
+      font-family: 'Montserrat', sans-serif;
+      color: #ff6f61;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .servicio p {
+      font-size: 1rem;
+      color: #34495e;
+      line-height: 1.4;
+    }
+
+    /* Camión */
+    #camion {
+      margin-bottom: 70px;
+    }
+    #camion h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.6rem;
+      color: #1a2a6c;
+      font-weight: 700;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    .camion-container {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .camion-imagenes {
+      flex: 1 1 400px;
+      max-width: 420px;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(26,42,108,0.15);
+      position: relative;
+      height: 280px;
+      user-select: none;
+    }
+    .camion-imagenes img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 14px;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      user-select: none;
+    }
+    .camion-imagenes img.active {
+      opacity: 1;
+      position: relative;
+    }
+    .camion-caracteristicas {
+      flex: 1 1 380px;
+      max-width: 450px;
+      list-style: none;
+      font-size: 1.2rem;
+      color: #34495e;
+    }
+    .camion-caracteristicas ul {
+      padding-left: 0;
+      list-style: none;
+    }
+    .camion-caracteristicas li {
+      margin-bottom: 20px;
+      padding-left: 14px;
+      border-left: 5px solid #ff6f61;
+      font-weight: 600;
+      cursor: default;
+      transition: border-color 0.3s ease;
+    }
+    .camion-caracteristicas li:hover {
+      border-color: #c94e42;
+      color: #c94e42;
+    }
+
+    /* Redes sociales flotantes */
+    .redes-flotantes {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      display: flex;
+      gap: 18px;
+      z-index: 1200;
+    }
+    .icon {
+      width: 56px;
+      height: 56px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      user-select: none;
+    }
+    .icon img {
+      width: 28px;
+      height: 28px;
+    }
+    .icon.whatsapp {
+      background-color: #25d366;
+    }
+    .icon.facebook {
+      background-color: #1877f2;
+    }
+    .icon:hover {
+      transform: scale(1.15);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    }
+
+    /* Botón fijo contratar */
+    .btn-contratar-fijo {
+      position: fixed;
+      bottom: 95px;
+      right: 25px;
+      background: #ff6f61;
+      color: white;
+      font-weight: 700;
+      font-size: 1.15rem;
+      padding: 16px 30px;
+      border-radius: 12px;
+      box-shadow: 0 15px 40px rgba(255,111,97,0.6);
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+      z-index: 1300;
+    }
+
+    .btn-contratar-fijo:hover {
+      background: #e65c51;
+      box-shadow: 0 18px 50px rgba(230,92,81,0.8);
+    }
+  </style>
+</head>
+<body>
+  <!-- Encabezado -->
+  <header>
+    <div class="header-container">
+      <h1 class="logo">Fletes y Mudanzas</h1>
+      <nav>
+        <ul>
+          <li><a href="#video">Inicio</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#camion">Camión</a></li>
+          <li><a href="contratar.html" class="btn-contratar">Contratar Servicio</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contenido -->
+  <main class="container">
+    <!-- Sección video -->
+    <section class="video-section" id="video">
+      <video id="videoPrincipal" autoplay muted loop playsinline preload="auto" controls>
+        <source src="imagenes/mudanza.mp4" type="video/mp4" />
+        Tu navegador no soporta la reproducción de video.
+      </video>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios">
+      <h2>Servicios que Ofrecemos</h2>
+      <div class="servicios-container">
+        <div class="servicio">
+          <img src="imagenes/img3.png" alt="Fletes Urbanos" />
+          <h3>Fletes Urbanos</h3>
+          <p>Transporte rápido y seguro dentro de la ciudad para todo tipo de carga.</p>
+        </div>
+        <div class="servicio">
+          <img src="imagenes/img1.jpg" alt="Mudanzas Residenciales" />
+          <h3>Mudanzas Residenciales</h3>
+          <p>Nos encargamos de tu hogar con eficiencia y responsabilidad.</p>
+        </div>
+        <div class="servicio">
+          <img src="imagenes/img2.jpg" alt="Mudanzas de Oficina" />
+          <h3>Mudanzas de Oficina</h3>
+          <p>Trasladamos tu empresa sin interrumpir tus operaciones.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Camión -->
+    <section id="camion">
+      <h2>Características del Camión</h2>
+      <div class="camion-container">
+        <div class="camion-imagenes">
+          <img src="imagenes/img2.jpg" alt="Camión vista frontal" class="active" />
+          <img src="imagenes/img1.jpg" alt="Camión vista lateral" />
+          <img src="imagenes/img4.png" alt="Camión en movimiento" />
+        </div>
+        <div class="camion-caracteristicas">
+          <ul>
+            <li><strong>Carga máxima:</strong> 3.5 toneladas</li>
+            <li><strong>Marca:</strong> Cronos</li>
+            <li><strong>Color:</strong> Blanco con detalles azules</li>
+            <li><strong>Modelo:</strong> 2024</li>
+            <li><strong>Dimensiones:</strong> 6m largo x 2.5m ancho x 3m alto</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Redes sociales flotantes -->
+  <div class="redes-flotantes">
+    <a href="https://wa.me/593992188160?text=Hola%20👋%2C%20quiero%20una%20cotizaci%C3%B3n%20para%20el%20servicio%20de%20mudanza%20🚛" class="icon whatsapp" target="_blank" aria-label="WhatsApp">
+      <img src="imagenes/Whatsapp.svg.png" alt="WhatsApp" />
+    </a>
+    <a href="https://www.facebook.com/tuPagina" class="icon facebook" target="_blank" aria-label="Facebook">
+      <img src="imagenes/Facebook.png" alt="Facebook" />
+    </a>
+  </div>
+
+  <!-- Botón fijo contratar -->
+  <a href="contratar.html" class="btn-contratar-fijo">Contratar Servicio</a>
+
+  <script>
+    // Código simple para ciclo de imágenes camión
+    const slides = document.querySelectorAll('.camion-imagenes img');
+    let current = 0;
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 4000);
+
+    // Intentar reproducir video con sonido (al cargar página)
+    window.addEventListener('load', () => {
+      const video = document.getElementById('videoPrincipal');
+      video.muted = false;
+      video.play().catch(() => {
+        // Si el navegador bloquea el autoplay con sonido, lo dejamos silenciado
+        video.muted = true;
+        video.play();
+      });
+    });
+  </script>
+</body>
+</html>
+
